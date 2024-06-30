@@ -1,0 +1,537 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Gigaland React Documentation</title>
+
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <section class="bg-color">
+      <div class="row">
+        <div class="col-md-3">
+          <h1 class="title">Gigaland</h1>
+        </div>
+        <div class="col-md-7">Thank you for purchasing our Template. If you have any questions that are beyond the scope
+          of this help file, please feel free to ask via item's comments. Also please don't forget to give item ratings!
+          Thanks so much! :)
+        </div>
+        <div class="col-md-2 text-right"><a class="btn btn-primary mt15"
+            href="https://themeforest.net/user/on3stepthemes">View All Our Items</a></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Gigaland Strapi CMS</h2>
+      <div class="expand">
+        <div class="title">Template Option</div>
+        <div class="content">
+          <p>We have 3 option templates here</p>
+          <p>and 2 folders for NFT Metamask Minting and Strapi CMS</p>
+          <ol class="alpha">
+            <li>gigaland-blackyellow</li>
+            <li>gigaland-nft (NFT Metamask Minting and smart contract)</li>
+            <li>gigaland-retro</li>
+            <li>gigaland-strapi (Strapi CMS folder)</li>
+            <li>gigalandLightGrey</li>
+          </ol>
+          <img src="img/templateoption.png" alt="img">
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">How to Install</div>
+        <div class="content">
+          <ol class="alpha">
+            <li>
+              <strong>Node.js and NPM :</strong> You can download Node.js from <a href="https://nodejs.org"
+                target="_blank">https://nodejs.org.</a> please use version <b>18.14.2</b>
+            </li>
+            <li>
+              <strong>NPM :</strong> You must have to npm install packages. You can do this by running <strong>npm
+                install</strong> from the root of your project to install all the necessary dependencies.
+              <p>Open a terminal(Windows Command Prompt or PowerShell).</p>
+              <img src="img/install.png" alt="img">
+            </li>
+            <li><strong>Run <i>npm start</i></strong> for a dev server. Navigate to http://localhost:3000/ . The app
+              will automatically reload if you change any of the source files.</li>
+            <li><strong>Run <i>npm run build</i></strong> to build the project. The build artifacts will be stored in
+              the build/ directory. Use the npm run build --prod flag for a production build.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">If not work using NPM try using Yarn</div>
+        <div class="content">
+
+          <ol class="alpha">
+            <li>add <strong>SKIP_PREFLIGHT_CHECK=true</strong> in file .env</li>
+            <li>Remove node module command <strong>rm -rf node_modules</strong></li>
+            <li>Delete <strong>package-lock.json</strong></li>
+            <li>Install Yarn <a href="https://yarnpkg.com/en/docs/install" target="_blank">(
+                https://yarnpkg.com/en/docs/install ).</a></li>
+            <li>Run <strong>yarn install</strong></li>
+            <li>Run <strong>yarn run start from the folder</strong></li>
+          </ol>
+
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Install Gigaland-nft Minting with Metamask </div>
+        <div class="content">
+          <ol class="alpha">
+            <li>to start using this functionality you have to install and create an account for metamask, you will have
+              to configure it to use the Goerli test network</li>
+            <li>register an account on alchemy website and pinata first, you will have to use the API key and Secret to
+              start using it
+              - https://www.alchemy.com/
+              - https://app.pinata.cloud/</li>
+            <li>in Alchemy, create new app with Goerli as the selected network</li>
+            <li>click GET TEST ETH, then login alchemy in the website https://goerlifaucet.com/</li>
+            <li>in goerlifaucet.com, paste Goerli test address from metamask to get some test ETH</li>
+            <li>after installing the metamask follow this article to get your private key
+              https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key</li>
+            <li>after that, you can open the gigaland-nft folder, this folder is needed to create the smart contract
+              that we will deploy to the ethereum network</li>
+            <li>find the .env file, you will have to copy your alchemy API url and metamask private key</li>
+            <li>install all the dependencies with <strong>npm install</strong>, then run <strong>npx hardhat
+                compile</strong></li>
+            <li>run <strong>npx hardhat run scripts/deploy.js --network goerli</strong></li>
+            <li>you will see the contract address printed on the command line, keep this address so we can use it to
+              mint our NFT</li>
+            <li>open the gigaland folder, and find the .env file. we will copy the Pinata KEY and SECRET also the
+              Alchemy API url into the file</li>
+            <li>one last file need to be changed is the interact.js file inside src/core/nft/interact.js
+              you will have to change this line `const contractAddress = "0x92d474d216ce429c1efc7f48d7ff66bae5d070cd";`
+              with the address you keep before</li>
+            <li>you can start developing and test the minting process by going to the minting page</li>
+            <li>more references:
+              - https://ethereum.org/en/developers/tutorials/how-to-mint-an-nft/</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">How to install strapi CMS in your local </div>
+        <div class="content">
+          <ol class="alpha">
+            <li>
+              <strong>Node.js and NPM :</strong> You can download Node.js from <a href="https://nodejs.org"
+                target="_blank">https://nodejs.org.</a> please use version <b>18.14.2</b>.
+            </li>
+            <li>Enter to <b>gigaland-strapi</b> directory</li>
+            <li>Run <b>npm install</b></li>
+            <li>After that, run <b>npm run develop</b> to deploy the cms project in your local directory</li>
+            <li>Open http://localhost:1337/admin to enter the cms dashboard</li>
+            <li>Change password strapi with new password in your profile setting
+              <br>default <b>user: strapi.admin@mail.com </b>, <b>password : Strapisuperadmin1 </b>
+            </li>
+            <li>Enter directory <b>gigalandlightgrey / gigaland-retro / gigaland-blackyellow</b> </li>
+            <li>Run <b>npm install</b></li>
+            <li>After that, run <b>npm start</b> for work in local your directory at localhost:3000</li>
+            <li>Run <b>npm run build</b> to build the project. The build artifacts will be stored in the build/
+              directory. Use build directory for upload in your server</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">How to use Gigaland Strapi CMS </div>
+        <div class="content">
+          <p>Sync The root api frontend to your strapi CMS here </p>
+          <h2 class="root">Root folder <strong>src/core/api.js</strong></h2>
+          <img src="img/redux.png" alt="img">
+          <p class="mt15">
+            this version uses <b>Strapi CMS</b> API to provide response for the front end side. if you're not familiar
+            with <b>Strapi</b> please check out their documentation.
+            <br>
+            note that we are currently using the latest strapi. so please refer to the <a href="https://docs.strapi.io/"
+              target="_blank">Strapi documentation</a>
+            <br>
+            to use the CMS please refer to the step above on how to get the Strapi CMS working in you local environment.
+            <br>
+            <br>
+            on this version the Protected Route, Register, Login and Profile page is working by using Strapi built in
+            function.
+            <br>
+            <br>
+            <b>Protected Route</b> is used to block unauthorized user from accessing a certain page defined in the
+            routes. you can find Authentication related files in <b>src/core/auth</b> folder.
+            <br>
+          </p>
+          <pre>            <strong>// file location: src/components/app.js</strong>
+            <strong>...</strong>
+            const ProtectedRoute = ({ component: Component, ...rest }) =&gt; {
+              const isAuth = auth.getToken() !== null;
+              
+              return (
+                  isAuth ? &lt;Component {...rest} /&gt; : &lt;Redirect from="" to="/login" noThrow /&gt;
+              )
+            };
+            <strong>...</strong>
+            <strong>...</strong>
+            <strong>...</strong>
+            <strong>// With this route definition, the user must be logged in first before they can access Author and Profile Page</strong>
+            &lt;ProtectedRoute component={Author} path="/Author/:authorId"/&gt;
+            &lt;ProtectedRoute component={Profile} path="/Profile/:authorId"/&gt;
+          </pre>
+          <b>Register, Login and Profile</b> is used to Register a new user for the CMS, this new user will have a
+          default Author collection created upon registering.
+          <br>
+          once you register for a user, you can use it to Login into the CMS from the front end login page. or you can
+          use this existing credential to Login
+          <pre>
+            Email : gigaland_admin@mail.com
+            Password : GigalandAdmin
+
+            Email : profile_update@mail.com
+            Password : TestProfileUpdate
+          </pre>
+          after a successful Login then you can access the <b>Profile</b> page, this page is used to update the User
+          Profile Info.
+          you can upload a profile picture and a banner for the user and update the user information
+
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Gigaland Frontend to server </div>
+        <div class="content">
+          <h2 class="root">Zip Build folder from Frontend Gigaland and upload it to your server (<strong>/build
+              folder</strong>)</h2>
+          <small class="mt20"><strong>You can use Share hosting server for Frontend </strong></small>
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Strapi CMS to DigitalOcean Droplet</div>
+        <div class="content">
+          <h2 class="root">Since Gigaland is using Node v18.14.2, DigitalOcean App deployment is not supported, instead
+            deploying to Droplet</h2>
+            <h3>Create SSH key</h3>
+            <ol class="alpha">
+              <li>in local terminal/git bash, generate ssh key by typing <b>ssh-keygen</b>, set filename then give
+                password</li>
+              <li>copy the text of public key : <b>cat id_rsa.pub</b></li>
+              <li>in digitalocean, create ssh key in the setting, select secuirty tab, click add SSH Key, then paste
+                public key text, give the name and click add SSH Key</li>
+            </ol>
+            <h3>Create and Access a Droplet in DigitalOcean</h3>
+            <ol class="alpha">
+              <li>create Droplet (shared VM) with strapi-capable spec (2GB, 1Core, 10GB)</li>
+              <li>fill in all mandatory info, choose SSH key previously created
+              <li>after Droplet created, access the droplet with root : go to droplet detail, click Access, the Launch Droplet
+                Console</li>
+              <li>create non-root user, “This to set up a new system user account with reduced privileges, and configure
+                this user to run administrative commands via "sudo"</li>
+              <li>in the console type <b>adduser &lt;username&gt; </b></li>
+              <li>add the new user to the sudo group : <b>usermod -aG sudo &lt;username&gt;</b></li>
+              <li>connect the droplet, in terminal/git bash : <b>ssh -i id_rsa &lt;username&gt;@&lt;server ip address&gt</b></li>
+            </ol>
+          <h3>Setup Nginx as a Web Server</h3>
+          <ol class="alpha">
+            <li>in terminal/git bash type <b>sudo apt update</b> then <b>sudo apt install nginx</b></li>
+            <li>open firewall for HTTP : <b>sudo ufw allow 'Nginx HTTP'</b></li>
+            <li>check the firewall type <b>sudo ufw status</b></li>
+            <li>check the web server is running by typing <b>systemctl status nginx</b></li>
+          </ol>
+          <h3>Installing Node with NVM</h3>
+          <ol class="alpha">
+            <li>setup curl if not existed : <b>sudo apt install curl</b></li>
+            <li>install node and type <b>curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh |
+                bash</b></li>
+            <li>make this accessible globaly : <b>source ~/.profile</b></li>
+            <li>setup Node Version Manager for easy version node changes : <b>nvm install 18.14.2</b></li>
+            <li>make sure the NVM using the version : <b>nvm use v18.14.2</b></li>
+            <li>and make it to default version if rebooted/restarted : <b>nvm alias default v18.14.2</b></li>
+          </ol>
+          <h3>Transfer Project Files and Build</h3>
+          <ol class="alpha">
+            <li>Install Filezilla, create new connection, set the server IP, select logon type to Ask password, set
+              username (non-root), and
+              then connect and fill the password</li>
+            <li>transfer the gigaland-strapi folder to the path <b>/home/&lt;username&gt;</b>/</li>
+            <li>optionally you can transfer with other tools like WinSCP, Putty or cloning from GIT</li>
+            <li>in terminal/git bash, connect to the droplet : <b>ssh -i id_rsa &lt;username&gt;@&lt;serverIpAddress&gt;</b></li>
+            <li>go the the project path, then <b>npm install</b> or <b>yarn install</b> (if yarn not existed : <b>npm
+                install yarn -g</b>)</li>
+            <li>build the project for production : <b>NODE_ENV=production npm run build</b> or <b>NODE_ENV=production
+                yarn build</b></li>
+          </ol>
+
+          <h3>Install and Configure PM2 (Process Manager) Runtime</h3>
+          <p>“PM2 makes it possible to daemonize applications so that they will run in the background as a service.”</p>
+          <ol class="alpha">
+            <li>edit this js file : <b>nano ecosystem.config.js</b>, then replace the text with following :
+              <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">
+  module.exports = {
+    apps: [
+      {
+        name: 'strapi',
+        cwd: '/home/<username>/gigaland-strapi',
+        script: 'npm',
+        args: 'start',
+        env: {
+          NODE_ENV: 'production',
+          HOST:'127.0.0.1',
+          PORT='1337',
+        },
+      },
+    ],
+  };
+  </pre>
+            </li>
+            <li>enable firewall to the specific port since strapi listen port 1337 : <b>sudo ufw 1337/tcp</b> then
+              <b>sudo ufw enable</b>
+            </li>
+            <li>install PM2 : <b>sudo npm install pm2@latest -g</b></li>
+            <li>check if the js file can run in background : <b>pm2 start ecosystem.config.js</b></li>
+            <li>make the js run in the startup : <b>pm2 startup systemd</b></li>
+            <li>run the command from the output : <b>sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2
+                startup systemd -u username --hp /home/&lt;username&gt;</b></li>
+            <li>save it : <b>pm2 save</b></li>
+            <li>finally reboot to check whether it’s starting and running : <b>sudo reboot</b></li>
+          </ol>
+          <h3>Test and Create Admin Account</h3>
+          <ol class="alpha">
+            <li>in the browser, browse to <b>&lt;serverIpAddress&gt;:1337/admin</b></li>
+            <li>create admin account, set username and password</li>
+            <li>use this url <b>&lt;serverIpAddress&gt;:1337/admin</b> in the api.js configuration file of Gigaland frontends
+            </li>
+          </ol>
+
+          <h3>References</h3>
+          <ul>
+            <li><a href="https://docs.strapi.io/dev-docs/deployment/digitalocean">Strapi DigitalOcean Deployment</a>
+            </li>
+            <li><a
+                href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04">Initial
+                Setup Ubuntu</a></li>
+            <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04">Install
+                Nginx on Ubuntu</a></li>
+            <li><a
+                href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-20-04">Setup
+                Node Application for Ubuntu</a></li>
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Strapi CMS to other server </div>
+        <div class="content">
+          <h2 class="root">Check this reference for other server like AWS, Azure and Heroku </h2>
+          <small class="mt20"><strong><a href="https://docs.strapi.io/dev-docs/deployment/hosting-guides">Strapi Hosting
+                Provider Guides</a> </strong></small>
+        </div>
+      </div>
+
+
+
+    </section>
+
+    </section>
+
+    <section>
+      <h2>Basics</h2>
+
+      <div class="expand">
+        <div class="title">Create Columns</div>
+        <div class="content">
+          <p>For a simple two column layout, create a <strong>.row</strong> and add the appropriate number of
+            <strong>.col-md-*</strong> columns. As this is a 12-column grid, each <strong>.col-md-*</strong> spans a
+            number of those 12 columns, and should always add up to 12 for each row (or the number of columns in the
+            parent).
+          </p>
+
+          <p>Please read more for Bootstrap grid system here: <a
+              href="https://getbootstrap.com/docs/4.5/layout/grid/">https://getbootstrap.com/docs/4.5/layout/grid/</a>
+          </p>
+
+          <pre>&lt;div className=&quot;<strong>row</strong>&quot;&gt;<br>     &lt;div className=&quot;<strong>col-md-6</strong>&quot;&gt; this is 1/2 columns &lt;/div&gt;<br>     &lt;div className=&quot;<strong>col-md-6</strong>&quot;&gt; this is 1/2 columns &lt;/div&gt;<br>&lt;/div&gt;
+
+&lt;div className=&quot;<strong>row</strong>&quot;&gt;<br>     &lt;div className=&quot;<strong>col-md-4</strong>&quot;&gt; this is 1/3 columns &lt;/div&gt;<br>     &lt;div className=&quot;<strong>col-md-8</strong>&quot;&gt; this is 2/3 columns &lt;/div&gt;<br>&lt;/div&gt;
+
+&lt;div className=&quot;<strong>row</strong>&quot;&gt;<br>     &lt;div className=&quot;<strong>col-md-3</strong>&quot;&gt; this is 1/4 columns &lt;/div&gt;<br>     &lt;div className=&quot;<strong>col-md-9</strong>&quot;&gt; this is 3/4 columns &lt;/div&gt;<br>&lt;/div&gt;</pre>
+
+        </div>
+      </div>
+
+
+      <div class="expand">
+        <div class="title">Animate object on scroll</div>
+        <div class="content">
+          <!-- HTML generated using hilite.me -->
+          <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%">import Reveal from &#39;react-awesome-reveal&#39;;
+import { keyframes } from &quot;@emotion/react&quot;;
+
+const fadeInUp = keyframes`
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+`;
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+<span style="color: #007700">&lt;Reveal</span> <span style="color: #0000CC">className=</span><span style="background-color: #fff0f0">&#39;onStep&#39;</span> <span style="color: #0000CC">keyframes=</span><span style="background-color: #fff0f0">{fadeInUp}</span> <span style="color: #0000CC">delay=</span><span style="background-color: #fff0f0">{0}</span> <span style="color: #0000CC">duration=</span><span style="background-color: #fff0f0">{600}</span> <span style="color: #0000CC">triggerOnce</span><span style="color: #007700">&gt;</span> CONTENT HERE <span style="color: #007700">&lt;/Reveal&gt;</span>
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Header Structure How to change Logo and Menu</div>
+        <div class="content">
+          <h2 class="root">Root folder
+            <strong>src/components/menu/header.js</strong>
+          </h2>
+          <h3>change logo</h3>
+          <img src="img/header.png" alt="img">
+          <h3 class="mt15">Menu Mobile</h3>
+          <img src="img/header1.png" alt="img">
+          <h3 class="mt15">Menu Dekstop</h3>
+          <img src="img/header2.png" alt="img">
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Routing</div>
+        <div class="content">
+          <h2 class="root">Root folder <strong>src/components/app.js</strong></h2>
+          <img src="img/routing.png" alt="img">
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Custom background image for div/section</div>
+        <div class="content">
+
+          <p>To make custom background image without touching css file, you can use code
+            <strong>style=&quot;url(your-image-url)&quot; </strong> within your div/section tag. See sample below:
+          </p>
+          <!-- HTML generated using hilite.me -->
+          <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%">style={{backgroundImage: `url(${&#39;./img/background/4.jpg&#39;})`}}
+  </pre>
+          </div>
+
+          <!-- HTML generated using hilite.me -->
+          <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;section</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&#39;profile_banner&#39;</span> <span style="color: #0000CC">className=</span><span style="background-color: #fff0f0">&#39;jumbotron breadcumb no-bg&#39;</span> <span style="color: #0000CC">style=</span><span style="background-color: #fff0f0">{{backgroundImage:</span> <span style="color: #FF0000; background-color: #FFAAAA">`</span><span style="color: #0000CC">url</span><span style="color: #FF0000; background-color: #FFAAAA">(${&#39;./</span><span style="color: #0000CC">img</span><span style="color: #FF0000; background-color: #FFAAAA">/</span><span style="color: #0000CC">background</span><span style="color: #FF0000; background-color: #FFAAAA">/</span><span style="color: #0000CC">4</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">jpg</span><span style="color: #FF0000; background-color: #FFAAAA">&#39;})`}}</span><span style="color: #007700">&gt;</span>
+      <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">className=</span><span style="background-color: #fff0f0">&#39;mainbreadcumb&#39;</span><span style="color: #007700">&gt;</span>
+      <span style="color: #007700">&lt;/div&gt;</span>
+    <span style="color: #007700">&lt;/section&gt;</span>
+  </pre>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="expand">
+        <div class="title">Footer How to change Copyright ?</div>
+        <div class="content">
+          <h2 class="root">Root folder <strong>src/components/components/footer.js</strong></h2>
+          <img src="img/footer.png" alt="img">
+        </div>
+      </div>
+    </section>
+
+
+
+    <section>
+      <h2>SCSS Files</h2>
+
+      <div class="expand">
+        <div class="title">List of CSS files</div>
+        <div class="content">
+          <!-- HTML generated using hilite.me -->
+          <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%">/* CSS Document */
+
+
+/* 
+*
+*
+[Table of contents]
+*
+*
+*
+
+  color / $white
+  font / @import 
+  general / html
+  dropdown / .dropdown-custom.btn
+  navbar / .navbar
+  breadcumb / .breadcumb
+  home / .subheading
+  icon scroll / .icon-scroll-wraper
+  footer / footer
+  portofolio / AppContainer
+  contact / .form-side
+  news / .post-content
+  create file / .d-create-file
+  activity / .filter__l
+  feature box / .feature-box .inner
+  column nft / .nft_coll
+  countdown / .de_countdown
+  author list / .author_list
+  icon box / .icon-box 
+  carousel / .d-carousel
+  filter / .items_filter
+  colection / #profile_banner 
+  item details / .item_info
+  wallet / .box-url 
+  login / .field-set label
+  all icon / .demo-icon-wrap-s2 
+  element / .card-header
+  media all / @media only screen and (max-width: 1199px)
+
+*/
+</pre>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/custom.js"></script>
+
+</html>
